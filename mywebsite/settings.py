@@ -35,6 +35,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # local apps
+    'core.apps.CoreConfig',
+    'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig',
+
+    # 3rd party 
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +131,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Editor
+CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"
 
+# custom user
+AUTH_USER_MODEL = 'accounts.CustomUser'
+LOGIN_REDIRECT_URL = 'accounts:dashboard'
+LOGIN_URL = '/users/registration/login/'
 
 # Deployments Setup
 # Activate Django-Heroku.

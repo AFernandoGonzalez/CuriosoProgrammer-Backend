@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c720c7699a.js" crossorigin="anonymous"></script>
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+
+    <title>CuriosoProgrammer</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar ">
+        <a href="/" class="nav-logo"><span>Curioso</span><span>Programmer</span> </a>
+        
+        <ul class="nav-menu ">
+            <li class="nav-item">
+                <a href="{% url 'core:about' %}" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'core:portfolio' %}" class="nav-link">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'core:contact' %}" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'blog:blog_home' %}" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-btn" href="{% url 'accounts:login' %}">Signin</a>
+            </li>
+            
+        </ul>
+
+        <div class="hamburger ">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+    </nav>
+
+
+    <!--  -->
+    {% block content %}
+    {% endblock %}
+    <!--  -->
+
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+        <div class="footer-container">
+            <div class="footer-card-info">
+                <h5><span>Curioso</span><span>Programmer</span></h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="footer-card">
+                <h5>Blog Categories</h5>
+                <a href="">Django</a>
+                <a href="">Django</a>
+                <a href="">Django</a>
+                <a href="">Django</a>
+            </div>
+            <div class="footer-card">
+                <h5>My Account</h5>
+                <a href="">Django</a>
+                <a href="">Django</a>
+                <a href="">Django</a>
+            </div>
+            <div class="footer-card">
+                <h5>Social Media</h5>
+                <a href="">Youtube</a>
+                <a href="">LinkedIn</a>
+                <a href="">Instagram</a>
+                <a href="">Facebook</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright @<span>Curioso</span><span>Programmer</span>, 2021</p>
+        </div>
+
+    </section>
+
+
+
+
+    <!-- Js -->
+    <script src="{% static 'js/app.js' %}" ></script>
+</body>
+</html>

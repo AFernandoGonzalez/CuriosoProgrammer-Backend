@@ -1,0 +1,94 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+ <!-- Section -->
+ <section class="about-section">
+    <div class="about-container">
+        <div class="about-info-container">
+            {% for ab_me in about_me %}
+            <div class="about-me">
+                <div class="about-person-img">
+                    <img src="{{ ab_me.my_img.url }}" alt="">
+                </div>
+                <div class="about-person-info">
+                    <h1>{{ ab_me.name }}</h1>
+                    <p>{{ ab_me.short_desc }}</p>
+                    <p class="about-email">{{ ab_me.email }}</p>
+                    <div class="about-social-media-icons">
+                        <a href="{{ ab_me.linkedIn_link }}" target="_blank"  ><i class="fab fa-linkedin-in"></i></a>
+                        <a href="{{ ab_me.youtube_link }}" target="_blank" ><i class="fab fa-youtube"></i></a>
+                        <a href="{{ ab_me.facebook_link }}" target="_blank" ><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{ ab_me.instagram_link }}" target="_blank" ><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="about-skills">
+                <h2>Technologies I've Learned</h2>
+                <div class="about-technologies">
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                    <div class="about-technology">
+                        <span>Figma</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-currently">
+                <h2>What I'm Currently...</h2>
+                <div class="about-currently-container">
+                    <div class="about-working-on">
+                        <h5>Working on</h5>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-working-on">
+                        <h5>Reading / Listening</h5>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
