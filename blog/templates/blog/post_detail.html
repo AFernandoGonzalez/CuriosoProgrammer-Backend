@@ -1,0 +1,126 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<!-- Section -->
+
+<section class="blog-detail-section-page">
+    <div class="blog-detail-container-page">
+        <!-- sidebar -->
+        <div class="blog-detail-sidebar">
+            <div class="social-media-icons">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+            <div class="blog-table-of-contents">
+                <h4>Table of Content</h4>
+                <ul>
+                    <li>Reason #1: It Adds SEO Value to Your Blog</li>
+                    <li>Reason #2: It Makes Your Blog Easier to Find</li>
+                    <li>Reason #3: It Increases Dwell Time</li>
+                    <li>Reason #4: It Fosters User Trust</li>
+                    <li>Reason #5: It Helps Build Relationships</li>
+                </ul>
+            </div>
+        </div>
+        <!-- blog detail -->
+        <div class="article-detail-page">
+            <h1>{{ post.title }}</h1>
+            <div class="article-info">
+
+                {% for category in post.categories.all %}
+                <span><a href="{% url 'blog:blog_category' category.pk %}">{{ category.title }}</a>&nbsp;</span>
+                {% endfor %}
+
+                <span class="article-date">{{ post.created }}</span>
+            </div>
+            <div class="article-writing">
+                <p>{{ post.body|safe }}</p>
+            </div>
+            <div class="comments-section">
+
+                <div class="comments-container">
+                    {% with comments.count as total_comments %}
+                    <h5 class="comments-count-title">({{ total_comments }}) Comment{{ total_comments|pluralize }} on -
+                        <span>{{ post.title }}</span></h5>
+                    {% endwith %}
+                    <h4>Comments</h4>
+                    <!-- COments Section  -->
+                    {% for comment in comments %}
+                    <div class="comments-container">
+                        <div class="commenter-info">
+                            <p>Comment by <b>{{ comment.name }}</b> </p>
+                            <span>{{ comment.created }}</span>
+                            <div class="comment-body">
+                                <span>{{ comment.body|linebreaks }}</span>
+                            </div>
+                            <!-- <hr> -->
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="no-comments">There are no comments yet.</p>
+                    {% endfor %}
+                    <!--  -->
+                </div>
+                <div class="comment-form-container">
+                    <h4>Leave A Comment</h4>
+                    <!-- add if user is_authenticated  -->
+                    {% if user.is_authenticated %}
+                    <div class="account-msm-notif">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class=" bg-light-yellow alert alert-{{ message.tags }}">
+                            {{ message|safe }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <div class="comment-form">
+                        <!-- <p class="new-comment">Add a new Comment</p> -->
+
+                        <!-- Form Style -->
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <!-- {{ form }} -->
+                            <div class="comment-form-container">
+                                <div class="comment-form-name">
+                                    <div class="comment-f-n">
+                                        {{ comment_form.name }}
+                                    </div>
+                                    <div class="comment-f-e">
+                                        {{ comment_form.email }}
+                                    </div>
+                                    <div class="comment-f-b">
+                                        {{ comment_form.body }}
+                                    </div>
+                                </div>
+                                
+                                <div class="comment-f-btn">
+                                    <input class="comment-btn" type="submit" value="Submit">
+                                </div>
+                            </div>
+
+                        </form>
+                        <!-- End Form Style -->
+                    </div>
+
+                    <!-- add else  -->
+                    {% else %}
+                    <div class="comment-btn">
+                        <a class="btn-text-center" href="{% url 'accounts:login' %}?next={{request.path}}">Log in to add
+                            a
+                            comment!</a><br>
+                    </div>
+                    <!-- add endif  -->
+                    {% endif %}
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

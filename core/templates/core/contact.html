@@ -7,10 +7,33 @@
         <div class="contact-container">
             <h1>Get in Touch!</h1>
             <p>Contact me at any time, let me help you out!</p>
-            <input type="text" placeholder="name">
-            <input type="text" placeholder="password">
-            
-            <a href="">Send</a>
+           
+             <!-- Form Style -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <!-- {{ form }} -->
+                <div class="contact-form-container">
+                    <div class="contact-form-name">
+                        <div class="contact-f-n">
+                            {{ form.first_name }}
+                        </div>
+                        <div class="contact-l-n">
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    <div class="contact-s">
+                        {{ form.subject }}
+                    </div>
+                    <div class="contact-m">
+                        {{ form.message }}
+                    </div>
+                    <div class="contact-f-btn">
+                        <input class="contact-btn" type="submit" value="Submit">
+                    </div>
+                </div>
+   
+             </form>
+              <!-- End Form Style -->
         </div>
         
     </section>

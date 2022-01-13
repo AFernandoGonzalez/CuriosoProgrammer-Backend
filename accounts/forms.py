@@ -8,14 +8,15 @@ from .models import CustomUser
 class UserLoginForm(AuthenticationForm):
     
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control mb-3', 'placeholder': 'email', 'id': 'login-username'}))
+        attrs={'class': 'login-username', 'placeholder': 'Email', 'id': 'login-username'}))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
-            'class': 'form-control',
+            'class': 'login-password',
             'placeholder': 'Password',
             'id': 'login-pwd',
         }
     ))
+
 
 class RegistrationForm(forms.ModelForm):
     
@@ -54,13 +55,13 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['user_name'].widget.attrs.update(
-            {'class': 'form-control mb-3', 'placeholder': 'Username'})
+            {'class': 'register-user_name', 'placeholder': 'Username'})
         self.fields['email'].widget.attrs.update(
-            {'class': 'form-control mb-3', 'placeholder': 'E-mail', 'name': 'email', 'id': 'id_email'})
+            {'class': 'register-email', 'placeholder': 'Email', 'name': 'email', 'id': 'id_email'})
         self.fields['password'].widget.attrs.update(
-            {'class': 'form-control mb-3', 'placeholder': 'Password'})
+            {'class': 'register-password', 'placeholder': 'Password'})
         self.fields['password2'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Repeat Password'})
+            {'class': 'register-password2', 'placeholder': 'Repeat Password'})
 
 
 class UserEditForm(forms.ModelForm):

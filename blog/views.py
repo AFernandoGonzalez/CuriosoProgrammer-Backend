@@ -7,16 +7,34 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from .models import Category, Post, Comment
 from .forms import CommentForm, PostForm
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 from django.db.models import Count
 
 
-class PostListView(ListView):
-    model = Post
-    template_name = 'blog/blog_home.html'
-    queryset = Post.objects.filter(status='published')
-    context_object_name = 'posts'
-    paginate_by = 3
+# class PostListView(ListView):
+#     model = Post
+#     template_name = 'blog/blog_home.html'
+#     queryset = Post.objects.filter(status='published')
+#     context_object_name = 'posts'
+#     paginate_by = 3
+
+def blog_page(request):
+    posts = Post.objects.filter(status='published')[1:]
+    top_post = Post.objects.filter(status='published').order_by('-created')[:1]
+    categories = Category.objects.all()[:10]
+
+    paginator = Paginator(posts, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'posts': posts,
+        'top_post': top_post,
+        'categories': categories,
+        'page_obj': page_obj,
+    }
+    return render(request, 'blog/blog_home.html', context)
 
 
 class UserPostListView(ListView):
@@ -38,20 +56,18 @@ class UmpublishedPostListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user, status='draft')
-    
+
 
 def post_detail(request, slug=None):
     template_name = 'blog/post_detail.html'
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(active=True)
     new_comment = None
-
-
-    # 
+    #
     # post_tags_ids = post.tags.values_list('id', flat=True)
     # similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
     # similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
-    
+
     # Comment posted
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -68,21 +84,28 @@ def post_detail(request, slug=None):
             return HttpResponseRedirect(reverse_lazy('blog:blog_detail', kwargs={'slug': post.slug}))
     else:
         comment_form = CommentForm()
-        
 
     return render(request, template_name, {'post': post,
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form,
-                                           'similar_posts': similar_posts})
+                                           })
 
 
-def blog_category(request, category):
+def blog_category(request, pk):
+    category = Category.objects.get(pk=pk)
     posts = Post.objects.filter(categories=category).order_by('-created')
+
+    paginator = Paginator(posts, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
         "category": category,
-        "posts": posts
+        "posts": posts,
+        "page_obj": page_obj,
     }
+
     return render(request, "blog/blog_category.html", context)
 
 
@@ -93,14 +116,14 @@ class SearchView(ListView):
     context_object_name = 'search'
 
     def get_queryset(self):
-       result = super(SearchView, self).get_queryset()
-       query = self.request.GET.get('search')
-       if query:
-          postresult = Post.objects.filter(title__contains=query)
-          result = postresult
-       else:
-           result = None
-       return result
+        result = super(SearchView, self).get_queryset()
+        query = self.request.GET.get('search')
+        if query:
+            postresult = Post.objects.filter(title__contains=query)
+            result = postresult
+        else:
+            result = None
+        return result
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
@@ -128,7 +151,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
-    
+
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post

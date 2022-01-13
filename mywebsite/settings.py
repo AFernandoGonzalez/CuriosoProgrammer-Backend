@@ -139,6 +139,17 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'accounts:dashboard'
 LOGIN_URL = '/users/registration/login/'
 
+# Automated Emails
+CONTACT_EMAIL = env.str('CONTACT_EMAIL')
+ADMIN_EMAIL = env.list('ADMIN_EMAIL', )
+
+# Twilio SendGrid
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = env.str('SENDGRID_API_KEY')
+
 # Deployments Setup
 # Activate Django-Heroku.
 # django_heroku.settings(locals())

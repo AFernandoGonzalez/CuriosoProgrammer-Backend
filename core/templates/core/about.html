@@ -28,38 +28,11 @@
             <div class="about-skills">
                 <h2>Technologies I've Learned</h2>
                 <div class="about-technologies">
+                    {% for sk in skills %}
                     <div class="about-technology">
-                        <span>Figma</span>
+                        <span>{{ sk.tech_title }}</span>
                     </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
-                    <div class="about-technology">
-                        <span>Figma</span>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -68,20 +41,21 @@
                 <div class="about-currently-container">
                     <div class="about-working-on">
                         <h5>Working on</h5>
+                        {% for wo in workingOn %}
                         <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                            <li>{{ wo.name }}</li>
                         </ul>
+                        {% endfor %}
                     </div>
 
                     <div class="about-working-on">
                         <h5>Reading / Listening</h5>
+                        {% for wo in readlisten %}
                         <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                            <li>{{ wo.bookname }}</li>
+                            <li>{{ wo.audioname }}</li>
                         </ul>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

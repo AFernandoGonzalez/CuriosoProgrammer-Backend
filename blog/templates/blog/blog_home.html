@@ -6,76 +6,64 @@
     <section class="blog-section-page">
         <div class="blog-container-page">
             <h1>The Blog</h1>
+            {% for t in top_post %}
             <div class="blog-top-article">
                 <!-- <i class="far fa-star"></i> -->
-                <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" alt="">
+                <img src="{{ t.image.url }}" alt="">
                 <!-- <i class="far fa-star"></i> -->
                 <div class="top-article-info">
-                    <h4>Project Name Goes Here, This is a longer Title FOr Testing</h4>
-                    <span>December 10, 2021</span>
+                    <!-- <h4>{{ t.title }}</h4> -->
+                    <h5><a href="{{ t.get_absolute_url }}">{{ t.title }}</a></h5>
+                    <span>{{ t.created }}</span>
                 </div>
                 <!-- <i class="far fa-star"></i> -->
             </div>
-            
+            {% endfor %}
             <div class="blog-top-articles">
                 <h2>Popular Posts</h2>
                 <div class="blog-articles">
                     <div class="blog-categories">
                         <h4>Top 10 Categories</h4>
                         <div class="top-category-list">
-                            <a href="">Swift Longer</a>
-                            <a href="">Python</a>
-                            <a href="">Django</a>
-                            <a href="">Swift</a>
-                            <a href="">Python</a>
-                            <a href="">Django</a>
-                            <a href="">Swift</a>
-                            <a href="">Python</a>
-                            <a href="">Django</a>
-                            <a href="">Swift</a>
+                            {% for c in categories %}
+                            <a href="{% url 'blog:blog_category' c.pk %}">{{ c.title }}</a>&nbsp;
+                            {% endfor %}
                         </div>
                         
                     </div>
+                    {% for post in page_obj %}
                     <div class="blog-article ">
                         <div class="blog-article-info ">
-                            <img class="" src="https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
-                            <h5>Article Name Goes Here</h5>
-                            <span>December 5, 2023</span>
+                            <img class="" src="{{ post.image.url }}" alt="">
+                            <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                            <span>{{ post.created }}</span>
                         </div>
                     </div>
-                    <div class="blog-article ">
-                        <div class="blog-article-info ">
-                            <img class="" src="https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
-                            <h5>Article Name Goes Here</h5>
-                            <span>December 5, 2023</span>
-                        </div>
-                    </div>
-                    <div class="blog-article ">
-                        <div class="blog-article-info ">
-                            <img class="" src="https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
-                            <h5>Article Name Goes Here</h5>
-                            <span>December 5, 2023</span>
-                        </div>
-                    </div>
-                    <div class="blog-article ">
-                        <div class="blog-article-info ">
-                            <img class="" src="https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
-                            <h5>Article Name Goes Here</h5>
-                            <span>December 5, 2023</span>
-                        </div>
-                    </div>
-                    <div class="blog-article ">
-                        <div class="blog-article-info ">
-                            <img class="" src="https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
-                            <h5>Article Name Goes Here</h5>
-                            <span>December 5, 2023</span>
-                        </div>
-                    </div>  
+                    {% endfor %}
                 </div>
             </div>
         </div>
 
         <!-- Pagination goes here -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+
+        <!--  -->
     </section>
 
 

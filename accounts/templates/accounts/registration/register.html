@@ -7,13 +7,40 @@
     <section class="register-section">
         <div class="register-container">
             <h1>Create a New Account</h1>
-            <input type="text" placeholder="name">
-            <input type="text" placeholder="password">
-            
-            <a href="">Login</a>
+            <form action="" method="post">
+                {% csrf_token %}
+                <!-- {{ form }} -->
+    
+                <!-- Form Style -->
+                <div class="register-form-container">
+                    <div class="register-form-name">
+                        <div class="register-u">
+                            {{ form.user_name }}
+                        </div>
+                        <div class="register-e">
+                            {{ form.email }}
+                        </div>
+                        <div class="register-p">
+                            {{ form.password }}
+                        </div>
+                        <div class="register-p2">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+                 
+                    <div class="register-button">
+                        <input class="register-btn" type="submit" value="Submit">
+                    </div>
+                </div>
+    
+                <!-- End Form Style -->
+    
+                <!-- Name Name -->
+                
+             </form>
         </div>
         <div class="register-other-links-info">
-            <span>Already a member? <a class="register-now" href="">Register Now</a></span>
+            <span>Already a member? <a class="register-now" href="{% url 'accounts:login' %}">Login Here</a></span>
         </div>
     </section>
 

@@ -1,7 +1,16 @@
 from django.db import models
-from django.urls import reverse
 from PIL import Image
 from ckeditor.fields import RichTextField
+
+class Contact(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.email
 
 class Project(models.Model):
     proj_title = models.CharField(max_length=100)
@@ -11,6 +20,7 @@ class Project(models.Model):
     proj_url = models.URLField(max_length=200, blank=True)
     blog_link = models.URLField(max_length=200, blank=True)
     proj_img = models.ImageField(default='proj_default_img.png', upload_to='projects_images')
+    top_project = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-proj_title',)
@@ -21,11 +31,11 @@ class Project(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
+        img = Image.open(self.proj_img.path)
         if img.height > 600 or img.width > 600:
             output_size = (700, 700)
             img.thumbnail(output_size)
-            img.save(self.image.path)
+            img.save(self.proj_img.path)
 
 
 class AboutMe(models.Model):
@@ -47,7 +57,7 @@ class Skill(models.Model):
     tech_title = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.title
+        return self.tech_title
 
 
 class Education(models.Model):
@@ -67,6 +77,9 @@ class Certificate(models.Model):
 
 class WorkingOn(models.Model):
     name = models.CharField(max_length=200, blank=True)
+
+    def __str__(self):
+        return self.name
 
 class ReadingListening(models.Model):
     bookname = models.CharField(max_length=200, blank=True)
