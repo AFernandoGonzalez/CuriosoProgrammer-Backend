@@ -18,6 +18,19 @@ body {
   font-family: 'Source Code Pro', monospace;
 }
 
+.normal-btn {
+  position: relative;
+  top: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.btn-hover:hover {
+  color: black !important;
+  background-color: var(--pri-color);
+  top: -5px;
+}
+
 .nav {
   z-index: 2;
   background-color: black;
@@ -77,6 +90,11 @@ body {
 .navbar .nav-menu .nav-item a {
   text-decoration: none;
   color: var(--pri-color);
+}
+
+.navbar .nav-menu .nav-item .nav-btn {
+  border: 2px solid var(--pri-color);
+  padding: .5rem;
 }
 
 .navbar .nav-menu.active {
@@ -333,6 +351,10 @@ body {
   transition: opacity 0.3s ease-in 0.4s;
 }
 
+.portfolio-section .portfolio-container .panel.panel.active .project-btn:hover i {
+  color: black;
+}
+
 .portfolio-section .portfolio-container .active .project-info h3,
 .portfolio-section .portfolio-container .active .project-info p {
   opacity: 1;
@@ -438,6 +460,10 @@ body {
 .blog-section .blog-container .blog-detail-container .post-info .post-btn-container .post-btn i {
   font-size: 25px;
   color: var(--pri-color);
+}
+
+.blog-section .blog-container .blog-detail-container .post-info .post-btn-container .post-btn:hover i {
+  color: black;
 }
 
 .footer-section {
@@ -560,6 +586,14 @@ body {
 .about-section .about-container .about-info-container .about-person-info .about-social-media-icons a i {
   margin: 1rem;
   color: var(--pri-color);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.about-section .about-container .about-info-container .about-person-info .about-social-media-icons a:hover i {
+  color: black;
+  background: var(--pri-color);
+  padding: .5rem;
 }
 
 .about-section .about-container .about-skills {
@@ -577,6 +611,7 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
 }
 
 .about-section .about-container .about-skills .about-technologies .about-technology {
@@ -584,10 +619,29 @@ body {
   margin: 1rem;
   text-align: center;
   border: 2px solid var(--pri-color);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .about-section .about-container .about-skills .about-technologies .about-technology span {
   color: var(--sec-color);
+}
+
+.about-section .about-container .about-skills .about-technologies .about-technology:hover {
+  opacity: 1;
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+  position: relative;
 }
 
 .about-section .about-container .about-currently {
@@ -680,6 +734,10 @@ body {
   color: var(--pri-color);
 }
 
+.portfolio-section-page .porfolio-container-page .portfolio-top-project .top-project-info .top-project-btn a:hover i {
+  color: black;
+}
+
 .portfolio-section-page .porfolio-container-page .portfolio-projects h2 {
   text-align: center;
   font-size: 25px;
@@ -726,6 +784,7 @@ body {
 }
 
 .portfolio-section-page .porfolio-container-page .portfolio-projects .portfolio-project .porfolio-project-btn a {
+  text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -743,6 +802,10 @@ body {
 
 .portfolio-section-page .porfolio-container-page .portfolio-projects .portfolio-project .porfolio-project-btn a i {
   color: var(--pri-color);
+}
+
+.portfolio-section-page .porfolio-container-page .portfolio-projects .portfolio-project .porfolio-project-btn a:hover i {
+  color: black;
 }
 
 .project-detail-section .project-detail-container h1 {
@@ -934,6 +997,10 @@ body {
   margin: 1rem 0;
 }
 
+.contact-section .contact-container .contact-form-container .contact-f-btn .contact-btn:hover {
+  background-color: var(--pri-color);
+}
+
 .login-section {
   height: 500px;
 }
@@ -1002,6 +1069,15 @@ body {
   text-decoration: none;
   padding: .5rem;
   margin: 1rem 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.login-section .login-container .login-form-container .login-button .login-btn:hover {
+  color: black;
+  background-color: var(--pri-color);
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
 }
 
 .login-section .login-other-links-info {
@@ -1026,6 +1102,57 @@ body {
   color: var(--sec-color);
 }
 
+.blog-section-page .blog-container-page {
+  /* Move the background and make it smaller. */
+  /* Animation shown when entering the page and after the hover animation. */
+}
+
+.blog-section-page .blog-container-page .gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: #f8f8f8;
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #FFD400 16.666%, #FFDD3C 33.666%, #FFEA61 50.333%, #FFF192 73.333%, #FFFFB7 80%);
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  -webkit-animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+          animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+
+.blog-section-page .blog-container-page .gradient-text:hover {
+  -webkit-animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+          animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+@-webkit-keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 0%;
+  }
+  40% {
+    background-size: 50%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 0%;
+  }
+  40% {
+    background-size: 50%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
 .blog-section-page .blog-container-page h1 {
   -webkit-margin-before: 0em;
           margin-block-start: 0em;
@@ -1041,6 +1168,8 @@ body {
   padding: 1rem;
   margin: 2rem;
   text-align: center;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .blog-section-page .blog-container-page .blog-top-article i {
@@ -1055,14 +1184,37 @@ body {
      object-fit: cover;
 }
 
-.blog-section-page .blog-container-page .blog-top-article h5 a {
+.blog-section-page .blog-container-page .blog-top-article .top-article-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.blog-section-page .blog-container-page .blog-top-article .top-article-info a {
+  margin: 1rem 0;
   text-decoration: none;
   font-size: 25px;
   color: var(--pri-color);
 }
 
+.blog-section-page .blog-container-page .blog-top-article .top-article-info a:hover {
+  color: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
+}
+
 .blog-section-page .blog-container-page .blog-top-article span {
   color: var(--sec-color);
+}
+
+.blog-section-page .blog-container-page .blog-top-article:hover {
+  background: var(--pri-color);
+}
+
+.blog-section-page .blog-container-page .blog-top-article:hover .top-article-info a {
+  color: black;
 }
 
 .blog-section-page .blog-container-page .blog-top-articles {
@@ -1095,12 +1247,20 @@ body {
   padding: .5rem;
   text-decoration: none;
   color: var(--sec-color);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-categories .top-category-list a:hover {
+  color: var(--pri-color);
 }
 
 .blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article {
   margin: 2rem;
   border: 2px solid var(--pri-color);
   padding: 1rem;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article .blog-article-info {
@@ -1142,6 +1302,14 @@ body {
   color: var(--sec-color);
 }
 
+.blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article:hover {
+  background: var(--pri-color);
+}
+
+.blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article:hover .blog-article-info h5 a {
+  color: black;
+}
+
 .blog-detail-section-page .blog-detail-container-page .blog-detail-sidebar .social-media-icons {
   display: none;
   -webkit-box-orient: vertical;
@@ -1169,12 +1337,24 @@ body {
 }
 
 .blog-detail-section-page .blog-detail-container-page .article-detail-page .article-info span a {
-  color: var(--pri-color);
+  color: var(--sec-color);
+  font-weight: 700;
   text-decoration: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.blog-detail-section-page .blog-detail-container-page .article-detail-page .article-info span a:hover {
+  color: var(--pri-color);
 }
 
 .blog-detail-section-page .blog-detail-container-page .article-detail-page .article-info .article-date {
   color: var(--sec-color);
+}
+
+.blog-detail-section-page .blog-detail-container-page .article-detail-page .article-writing h3 {
+  color: var(--sec-color);
+  font-weight: 200;
 }
 
 .blog-detail-section-page .blog-detail-container-page .article-detail-page .article-writing p {
@@ -1319,16 +1499,28 @@ body {
 }
 
 .blog-detail-section-page .blog-detail-container-page .article-detail-page .comments-section .comment-form-container .comment-btn .btn-text-center {
-  color: var(--pri-color);
+  color: var(--sec-color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
   max-width: 100%;
   text-decoration: none;
   font-size: 16px;
   border: 2px solid var(--pri-color);
   padding: 1rem;
+  margin: .5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.blog-detail-section-page .blog-detail-container-page .article-detail-page .comments-section .comment-form-container .comment-btn .btn-text-center:hover {
+  color: black;
+  background-color: var(--pri-color);
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
 }
 
 .category-section-page {
@@ -1487,6 +1679,15 @@ body {
   text-decoration: none;
   padding: .5rem;
   margin: 1rem 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.register-section .register-container .register-form-container .register-button .register-btn:hover {
+  color: black;
+  background: var(--pri-color);
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
 }
 
 .register-section .register-other-links-info {
@@ -1882,12 +2083,12 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .blog-section-page .blog-container-page .blog-top-article .top-article-info h5 {
+  .blog-section-page .blog-container-page .blog-top-article .top-article-info a {
+    text-decoration: none;
+    color: var(--pri-color);
+    font-size: 24px;
+    font-weight: 700;
     text-align: left;
-    -webkit-margin-before: 0em;
-            margin-block-start: 0em;
-    -webkit-margin-after: 0em;
-            margin-block-end: 0em;
   }
   .blog-section-page .blog-container-page .blog-top-article .top-article-info span {
     margin-top: 1rem;
@@ -2029,6 +2230,9 @@ body {
 }
 
 @media (min-width: 1050px) {
+  .navbar .nav-menu .nav-item {
+    margin: 1rem;
+  }
   .hero-section h1 {
     display: -webkit-box;
     display: -ms-flexbox;

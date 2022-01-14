@@ -14,7 +14,7 @@
                     <h2>{{ t.proj_title }}</h2>
                     <p>{{ t.short_desc }}</p>
                     <div class="top-project-btn">
-                        <a href="{% url 'core:portfolio-detail' t.pk %}"><i class="fas fa-chevron-right"></i></a>
+                        <a class="normal-btn btn-hover" href="{% url 'core:portfolio-detail' t.pk %}"><i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <span>{{ pr.tech_used }}</span>
                         <p>{{ pr.short_desc }}</p>
                         <div class="porfolio-project-btn">
-                            <a href="{% url 'core:portfolio-detail' pr.pk %}"><i class="fas fa-chevron-right"></i></a>
+                            <a class="normal-btn btn-hover" href="{% url 'core:portfolio-detail' pr.pk %}"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     {% endfor %}

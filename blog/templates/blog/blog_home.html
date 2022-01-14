@@ -5,15 +5,14 @@
 
     <section class="blog-section-page">
         <div class="blog-container-page">
-            <h1>The Blog</h1>
+            <h1 class="gradient-text">The Blog</h1>
             {% for t in top_post %}
             <div class="blog-top-article">
                 <!-- <i class="far fa-star"></i> -->
                 <img src="{{ t.image.url }}" alt="">
                 <!-- <i class="far fa-star"></i> -->
                 <div class="top-article-info">
-                    <!-- <h4>{{ t.title }}</h4> -->
-                    <h5><a href="{{ t.get_absolute_url }}">{{ t.title }}</a></h5>
+                    <a href="{{ t.get_absolute_url }}">{{ t.title }}</a>
                     <span>{{ t.created }}</span>
                 </div>
                 <!-- <i class="far fa-star"></i> -->
