@@ -83,7 +83,7 @@ body {
 }
 
 .navbar .nav-menu .nav-item {
-  margin: 2rem;
+  margin: 0 1rem;
   list-style: none;
 }
 
@@ -949,6 +949,21 @@ body {
 }
 
 .contact-section .contact-container .contact-form-container .contact-form-name .contact-l-n input[type="text" i] {
+  outline: none;
+  color: #FFBD35;
+  font-size: 25px;
+  text-align: center;
+  padding: 1rem 2px;
+}
+
+.contact-section .contact-container .contact-form-container .contact-form-name .contact-l-e .contact-email {
+  margin: .5rem;
+  color: var(--sec-color);
+  background-color: var(--black-color);
+  border: 2px solid var(--pri-color);
+}
+
+.contact-section .contact-container .contact-form-container .contact-form-name .contact-l-e input[type="email" i] {
   outline: none;
   color: #FFBD35;
   font-size: 25px;

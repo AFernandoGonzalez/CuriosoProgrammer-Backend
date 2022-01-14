@@ -14,12 +14,16 @@
                 <!-- {{ form }} -->
                 <div class="contact-form-container">
                     <div class="contact-form-name">
+                        <div class="contact-l-e">
+                            {{ form.email }}
+                        </div>
                         <div class="contact-f-n">
                             {{ form.first_name }}
                         </div>
                         <div class="contact-l-n">
                             {{ form.last_name }}
                         </div>
+                       
                     </div>
                     <div class="contact-s">
                         {{ form.subject }}
