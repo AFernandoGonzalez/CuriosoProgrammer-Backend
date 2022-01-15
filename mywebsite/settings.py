@@ -24,7 +24,7 @@ SECRET_KEY = env.str('SECRET_KEY')
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://curiosoprogrammer.com', 'curiosoprogrammer.com', 'www.curiosoprogrammer.com']
+ALLOWED_HOSTS = ['https://curiosoprogrammer.com', 'curiosoprogrammer.com', 'www.curiosoprogrammer.com', 'curiosoprogrammer.herokuapp.com']
 # ALLOWED_HOSTS = []
 
 
