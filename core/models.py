@@ -87,4 +87,4 @@ class ReadingListening(models.Model):
 
     def __str__(self):
         # return self.certificate_name
-        return f'Reading {self.BookName} and listening {self.AudioName}'
+        return f'Reading {self.bookname} and listening {self.audioname}'
