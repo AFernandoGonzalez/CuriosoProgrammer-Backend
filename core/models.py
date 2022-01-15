@@ -28,14 +28,14 @@ class Project(models.Model):
     def __str__(self):
         return self.proj_title
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
 
-        img = Image.open(self.proj_img.path)
-        if img.height > 600 or img.width > 600:
-            output_size = (700, 700)
-            img.thumbnail(output_size)
-            img.save(self.proj_img.path)
+    #     img = Image.open(self.proj_img.path)
+    #     if img.height > 600 or img.width > 600:
+    #         output_size = (700, 700)
+    #         img.thumbnail(output_size)
+    #         img.save(self.proj_img.path)
 
 
 class AboutMe(models.Model):
