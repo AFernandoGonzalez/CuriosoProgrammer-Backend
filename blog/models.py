@@ -57,14 +57,14 @@ class Post(models.Model):
 
     
     # saving images to 600px
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
-        if img.height > 300 or img.width > 300:
-            output_size = (600, 600)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    #     img = Image.open(self.image.path)
+    #     if img.height > 300 or img.width > 300:
+    #         output_size = (600, 600)
+    #         img.thumbnail(output_size)
+    #         img.save(self.image.path)
 
 class Comment(models.Model):
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
