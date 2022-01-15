@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,15 +11,29 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BEBB7V8SZ9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-BEBB7V8SZ9');
+    </script>
+
     <title>CuriosoProgrammer</title>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <div class="nav">
         <nav class="navbar ">
             <a href="/" class="nav-logo"><span>Curioso</span><span>Programmer</span> </a>
-            
+
             <ul class="nav-menu ">
                 <li class="nav-item">
                     <a href="{% url 'core:about' %}" class="nav-link">About</a>
@@ -40,15 +55,15 @@
                 <li class="nav-item">
                     <a class="nav-btn normal-btn btn-hover" href="{% url 'accounts:login' %}">Signin</a>
                 </li>
-                {% endif %} 
+                {% endif %}
             </ul>
-    
+
             <div class="hamburger " id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-    
+
         </nav>
     </div>
 
@@ -64,7 +79,8 @@
         <div class="footer-container">
             <div class="footer-card-info">
                 <h5><span>Curioso</span><span>Programmer</span></h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
             </div>
             <!-- <div class="footer-card">
                 <h5>Blog Categories</h5>
@@ -73,7 +89,7 @@
                 <a href="">Django</a>
                 <a href="">Django</a>
             </div> -->
-            
+
             <!-- <div class="footer-card">
                 <h5>My Account</h5>
                 <a href="">Django</a>
@@ -82,10 +98,10 @@
             </div> -->
             <div class="footer-card">
                 <h5>Social Media</h5>
-                <a target="_blank"  href="https://www.youtube.com/channel/UClPQazBP9xm0XOP9k3OQomw">Youtube</a>
-                <a target="_blank"  href="https://www.linkedin.com/in/alvarogonzalez10/">LinkedIn</a>
-                <a target="_blank"  href="https://www.instagram.com/curiosoprogrammer/">Instagram</a>
-                <a target="_blank"  href="https://www.facebook.com/curiosoprogrammer">Facebook</a>
+                <a target="_blank" href="https://www.youtube.com/channel/UClPQazBP9xm0XOP9k3OQomw">Youtube</a>
+                <a target="_blank" href="https://www.linkedin.com/in/alvarogonzalez10/">LinkedIn</a>
+                <a target="_blank" href="https://www.instagram.com/curiosoprogrammer/">Instagram</a>
+                <a target="_blank" href="https://www.facebook.com/curiosoprogrammer">Facebook</a>
             </div>
         </div>
         <div class="footer-copyright">
@@ -98,6 +114,7 @@
 
 
     <!-- Js -->
-    <script src="{% static 'js/app.js' %}" ></script>
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
+
 </html>
