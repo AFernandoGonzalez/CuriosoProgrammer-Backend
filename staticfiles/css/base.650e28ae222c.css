@@ -83,7 +83,7 @@ body {
 }
 
 .navbar .nav-menu .nav-item {
-  margin: 2rem;
+  margin: 0 1rem;
   list-style: none;
 }
 
@@ -2473,4 +2473,4 @@ body {
     max-width: 300px;
   }
 }
-/*# sourceMappingURL=base.css.map */
+/*# sourceMappingURL=base.650e28ae222c.css.map */
