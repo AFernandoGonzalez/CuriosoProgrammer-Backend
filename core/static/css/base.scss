@@ -759,6 +759,7 @@ body {
                     font-size: 12px;
                     font-family: 200;
                     padding: .2rem;
+                    margin: .2rem;
                     color: var(--bg-color);
                     background-color: var(--pri-color);
                 }
@@ -841,10 +842,13 @@ body {
                 border: 2px solid var(--pri-color);
                 padding: 1rem;
                 margin: 2rem;
+                display: flex;
+                justify-content: center;
 
                 img {
-                    width: 100%;
+                    width: 300px;
                     max-width: 100%;
+
                 }
             }
         }
@@ -886,10 +890,13 @@ body {
 
                 a {
                     margin: 1rem 1rem 1rem 0;
+                    color: var(--sec-color);
+                    transition: .5s;
+                    text-decoration: none;
+                }
 
-                    i {
-                        color: var(--pri-color);
-                    }
+                a:hover {
+                    color: var(--pri-color);
                 }
             }
 
@@ -1444,15 +1451,32 @@ body {
             }
 
             .article-writing {
-                h3 {
-                    color: var(--sec-color);
-                    font-weight: 200;
+                h2, h3, h4, h5, h6{
+                    color: var(--pri-color);
+                    font-weight: 400;
                 }
 
                 p {
                     color: var(--sec-color);
                     font-weight: 200;
                 }
+
+                p {
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                pre {
+                    background: var(--sec-color);
+                    padding: 1rem;
+                    code {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+
             }
 
             .comments-section {
@@ -2217,11 +2241,12 @@ body {
 
                 .project-detail-img {
                     margin: 2rem 0rem 2rem 2rem;
+                    width: 500px;
 
                     img {
                         width: 100%;
                         height: 100%;
-                        object-fit: cover;
+                        object-fit: contain;
                     }
                 }
             }
@@ -2270,7 +2295,7 @@ body {
                 img {
                     width: 300px;
                     object-fit: contain;
-                    
+
                 }
 
                 .top-article-info {

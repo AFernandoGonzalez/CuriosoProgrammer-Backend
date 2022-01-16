@@ -11,11 +11,17 @@
                     <img src="{{ project.proj_img.url }}" alt="">
                 </div>
                 <div class="project-detail-info">
+                    {% if project.yt_link|length > 0 %}
                     <div class="project-detail-video">
-                        <iframe src="https://www.youtube.com/embed/Vg5caGgmk0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="{{ project.yt_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    {% else %}
                     <div class="project-detail-extra-img">
-                        <img src="{{ project.proj_img.url }}" alt="">
+                        <img src="{{ project.proj_img_1.url }}" alt="">
+                    </div>
+                    {% endif %}
+                    <div class="project-detail-extra-img">
+                        <img src="{{ project.proj_img_1.url }}" alt="">
                     </div>
                 </div>
             </div>
@@ -25,13 +31,24 @@
             <div class="about-project-info">
                 <h2>About the Project</h2>
                 <p> {{ project.long_desc|safe }} </p>
+                
             </div>
             <div class="about-project-links">
                 <h4>Project Links</h4>
                 <div class="project-links">
-                
-                    <a href="{{ project.proj_url }}" target="_blank"  ><i class="fab fa-instagram"></i></a>
-                    <a href="{{ project.blog_link }}" target="_blank" ><i class="fab fa-instagram"></i></a>
+                    {% if project.proj_url and project.blog_link %}
+                    <a href="{{ project.proj_url }}" target="_blank"  >Live Demo</a>
+                    <a href="{{ project.blog_link }}" target="_blank" >Build it</a>
+                    {% elif project.proj_url %}
+                    <a href="{{ project.proj_url }}" target="_blank"  >Live Demo</a>
+                    {% elif project.blog_link %}
+                    <a href="{{ project.blog_link }}" target="_blank" >Build it</a>
+                    {% else %}
+                    <div>
+                      
+                    </div>
+
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -39,3 +56,4 @@
 
 
 {% endblock %}
+

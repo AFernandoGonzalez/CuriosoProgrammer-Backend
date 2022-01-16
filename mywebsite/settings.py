@@ -135,9 +135,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Editor
-CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"
-
 # custom user
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'accounts:dashboard'
@@ -166,6 +163,28 @@ AWS_S3_VERIFY = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' 
 
 
+# Editor
+CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['CodeSnippet'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-','JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+            ['Maximize'],
+            ['Styles', 'Format', 'Font', 'Size', 'TextColor'],
+            ['Smiley'],
+            ['HorizontalRule'],
+        ],
+        'width': '100%',
+        'extraPlugins': 'codesnippet',
+    },
+    
+}
 
 # Deployments Setup
 # Activate Django-Heroku.

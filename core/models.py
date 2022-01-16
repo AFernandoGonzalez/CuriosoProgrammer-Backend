@@ -19,7 +19,9 @@ class Project(models.Model):
     tech_used = models.CharField(max_length=20)
     proj_url = models.URLField(max_length=200, blank=True)
     blog_link = models.URLField(max_length=200, blank=True)
+    yt_link = models.URLField(max_length=200, blank=True)
     proj_img = models.ImageField(default='proj_default_img.png', upload_to='projects_images')
+    proj_img_1 = models.ImageField(default='proj_default_img.png', upload_to='projects_images/subimgs')
     top_project = models.BooleanField(default=False)
 
     class Meta:
