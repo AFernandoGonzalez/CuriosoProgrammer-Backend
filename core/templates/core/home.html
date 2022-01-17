@@ -24,12 +24,17 @@
             {% for p in project %}
             <div class="panel active" >
                 <div class="project-info">
+                    
                     <h3>{{ p.proj_title }}</h3>
                     <p>{{ p.short_desc }}</p>
                     <div class="project-btn-container">
                         <a class="project-btn normal-btn btn-hover" href="{% url 'core:portfolio-detail' p.pk %}"> <i class="fas fa-chevron-right"></i> </a>
                     </div>
                 </div>
+                
+                <!-- <img src="{{ p.proj_img.url }}" alt=""> -->
+            
+                
             </div>
             {% endfor %}
         </div>
@@ -43,7 +48,7 @@
             <div class="blog-detail-container">
                 <div class="blog-heading-title">
                     <h3>Lastest Posts</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                    <p>Want to learn to code? Start by reading the lastest articles on how to start your own projects.</p>
                 </div>
 
                 {% for p in posts %}

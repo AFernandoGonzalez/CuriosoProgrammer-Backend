@@ -14,7 +14,7 @@ from .forms import ContactForm
 
 def home_view(request):
     project = Project.objects.all()[:5]
-    posts = Post.objects.all()[:4]
+    posts = Post.objects.all()[:3]
 
     context = {
         'project': project,
