@@ -1242,9 +1242,16 @@ body {
   text-decoration: none;
   font-size: 25px;
   color: var(--pri-color);
+  background-image: linear-gradient(transparent calc(65% - 5px), white 5px);
+  background-size: 0;
+  background-repeat: no-repeat;
+  display: inline;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .blog-section-page .blog-container-page .blog-top-article .top-article-info a:hover {
+  background-size: 100%;
   color: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
 }
 
@@ -1258,6 +1265,10 @@ body {
 
 .blog-section-page .blog-container-page .blog-top-article:hover .top-article-info a {
   color: black;
+}
+
+.blog-section-page .blog-container-page .blog-top-article:hover .top-article-info span {
+  color: var(--bg-color);
 }
 
 .blog-section-page .blog-container-page .blog-top-articles {
@@ -1338,6 +1349,17 @@ body {
   -webkit-margin-after: 0rem;
           margin-block-end: 0rem;
   color: var(--pri-color);
+  background-image: linear-gradient(transparent calc(65% - 5px), white 5px);
+  background-size: 0;
+  background-repeat: no-repeat;
+  display: inline;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article .blog-article-info h5 a:hover {
+  background-size: 100%;
+  color: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
 }
 
 .blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article .blog-article-info span {
@@ -1351,6 +1373,11 @@ body {
 
 .blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article:hover .blog-article-info h5 a {
   color: black;
+}
+
+.blog-section-page .blog-container-page .blog-top-articles .blog-articles .blog-article:hover .blog-article-info span {
+  color: var(--bg-color);
+  font-weight: 600;
 }
 
 .blog-detail-section-page .blog-detail-container-page .blog-detail-sidebar .social-media-icons {

@@ -1,5 +1,7 @@
 {% extends 'core/base.html' %}
 
+{% block title %} CuriosoProgrammer - Designing & Building FullStack WebApps {% endblock %}
+
 {% block content %}
 
     <!-- Hero Section -->
@@ -11,7 +13,7 @@
                 <a class="hero-btn-1 normal-btn btn-hover" href="{% url 'blog:blog_home' %}">The Blog</a>
             </div>
             <div class="hover-btn">
-                <a class="hero-btn-2 normal-btn btn-hover" href="{% url 'accounts:register' %}">Get Started</a>
+                <a class="hero-btn-2 normal-btn btn-hover" href="{% url 'core:portfolio' %}">Projects</a>
             </div>
         </div>
     </section>

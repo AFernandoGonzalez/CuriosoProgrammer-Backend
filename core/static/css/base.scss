@@ -1292,9 +1292,18 @@ body {
                     font-size: 25px;
                     color: var(--pri-color);
 
+                    // white underline
+                    background-image: linear-gradient(transparent calc(65% - 5px),
+                            darken(white, 0%) 5px,
+                        );
+                    background-size: 0;
+                    background-repeat: no-repeat;
+                    display: inline;
+                    transition: 0.5s ease;
                 }
 
                 a:hover {
+                    background-size: 100%;
                     color: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
                 }
             }
@@ -1304,6 +1313,8 @@ body {
                 color: var(--sec-color);
             }
 
+           
+
         }
 
         .blog-top-article:hover {
@@ -1312,6 +1323,10 @@ body {
             .top-article-info {
                 a {
                     color: black;
+                }
+
+                span {
+                    color: var(--bg-color);
                 }
             }
         }
@@ -1385,6 +1400,20 @@ body {
                                 margin-block-start: 0rem;
                                 margin-block-end: 0rem;
                                 color: var(--pri-color);
+
+                                // white underline
+                                background-image: linear-gradient(transparent calc(65% - 5px),
+                                        darken(white, 0%) 5px,
+                                    );
+                                background-size: 0;
+                                background-repeat: no-repeat;
+                                display: inline;
+                                transition: 0.5s ease;
+                            }
+
+                            a:hover {
+                                background-size: 100%;
+                                color: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
                             }
                         }
 
@@ -1403,6 +1432,11 @@ body {
                             a {
                                 color: black;
                             }
+                        }
+
+                        span {
+                            color: var(--bg-color);
+                            font-weight: 600;
                         }
                     }
                 }

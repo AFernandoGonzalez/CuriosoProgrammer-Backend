@@ -1,5 +1,7 @@
 {% extends 'core/base.html' %}
 
+{% block title %} Login {% endblock %}
+
 {% block content %}
 
 <!-- Section -->
@@ -33,10 +35,10 @@
             
          </form>
     </div>
-    <div class="login-other-links-info">
+    <!-- <div class="login-other-links-info">
         <a class="forgot-password" href="">Forgot Password</a>
-        <span>Not a member? <a class="register-now" href="{% url 'accounts:register' %}">Register Now</a></span>
-    </div>
+        <span>Not a member? <a class="register-now" href="{% url 'accounts:login' %}">Register Now</a></span>
+    </div> -->
 </section>
 
 
