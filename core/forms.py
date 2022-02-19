@@ -8,6 +8,14 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ('first_name', 'last_name', 'email', 'subject', 'message')
 
+        widgets = {
+            'message' : forms.Textarea(attrs={
+                'rows': '5',
+                'cols': '90',
+                'maxlength': '200',
+            }),
+        }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update(
